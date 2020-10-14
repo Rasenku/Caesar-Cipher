@@ -1,10 +1,10 @@
-shift = 3 #defining the shit count
+shift = 3 # defining the shift count
 
-text = "Hello World"
+encrypted_text = "KHOOR ZRUOG"
 
-encryption = ""
+plain_text = ""
 
-for c in text:
+for c in encrypted_text:
 
     # check if character is an uppercase letter
     if c.isupper():
@@ -14,22 +14,22 @@ for c in text:
 
         c_index = ord(c) - ord("A")
 
-        # perform the shift
-        new_index = (c_index + shift) % 26
+        # perform the negative shift
+        new_index = (c_index - shift) % 26
 
         # convert to new character
         new_unicode = new_index + ord("A")
 
         new_character = chr(new_unicode)
 
-        # append to encrypted string
-        encryption = encryption + new_character
+        # append to plain string
+        plain_text = plain_text + new_character
 
     else:
 
         # since character is not uppercase, leave it as it is
-        encryption += c
+        plain_text += c
 
-print("Plain text:",text)
+print("Encrypted text:",encrypted_text)
 
-print("Encrypted text:",encryption)
+print("Decrypted text:",plain_text)
