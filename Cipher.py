@@ -126,3 +126,22 @@ ciphertext = cipher_encrypt(plain_text, 4)
 print("Plain text message:\n", plain_text)
 
 print("Encrypted ciphertext:\n", ciphertext)
+
+ciphertext = "Sr xli gsyrx sj 7, 6, 5 - Ezirkivw Ewwiqfpi!"
+
+decrypted_msg = cipher_decrypt(ciphertext, 4)
+
+print("The cipher text:\n", ciphertext)
+
+print("The decrypted message is:\n",decrypted_msg)
+
+
+table = str.maketrans("abcde", "01234")
+
+text = "Albert Einstein, born in Germany, was a prominent theoretical physicist."
+
+translated = text.translate(table)
+
+print("Original text:/n", text)
+
+print("Translated text:/n", translated)
