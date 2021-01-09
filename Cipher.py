@@ -1,38 +1,5 @@
-# shift = 3 #defining the shit count
-#
-# text = "Hello World"
-#
-# encryption = ""
-#
-# for c in text:
-#
-#     # check if character is an uppercase letter
-#     if c.isupper():
-#
-#         # find the position in 0-25
-#         c_unicode = ord(c)
-#
-#         c_index = ord(c) - ord("A")
-#
-#         # perform the shift
-#         new_index = (c_index + shift) % 26
-#
-#         # convert to new character
-#         new_unicode = new_index + ord("A")
-#
-#         new_character = chr(new_unicode)
-#
-#         # append to encrypted string
-#         encryption = encryption + new_character
-#
-#     else:
-#
-#         # since character is not uppercase, leave it as it is
-#         encryption += c
-#
-# print("Plain text:",text)
-#
-# print("Encrypted text:",encryption)
+import string
+
 
 # The Encryption Function
 def cipher_encrypt(plain_text, key):
@@ -136,12 +103,40 @@ print("The cipher text:\n", ciphertext)
 print("The decrypted message is:\n",decrypted_msg)
 
 
-table = str.maketrans("abcde", "01234")
+# table = str.maketrans("abcde", "01234")
+#
+# text = "Albert Einstein, born in Germany, was a prominent theoretical physicist."
+#
+# translated = text.translate(table)
+#
+# print("Original text:/n", text)
+#
+# print("Translated text:/n", translated)
 
-text = "Albert Einstein, born in Germany, was a prominent theoretical physicist."
+import string
 
-translated = text.translate(table)
+def cipher_cipher_using_lookup(text,  key, characters = string.ascii_lowercase, decrypt=False):
 
-print("Original text:/n", text)
+    if key < 0:
 
-print("Translated text:/n", translated)
+        print("key cannot be negative")
+
+        return None
+
+    n = len(characters)
+
+    if decrypt==True:
+
+        key = n - key
+
+    table = str.maketrans(characters, characters[key:]+characters[:key])
+
+    translated_text = text.translate(table)
+
+    return translated_text
+
+text = "HELLO WORLD! Welcome to the world of Cryptography!"
+
+encrypted = cipher_cipher_using_lookup(text, 3, string.ascii_uppercase, decrypt=False)
+
+print(encrypted)
