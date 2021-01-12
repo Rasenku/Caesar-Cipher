@@ -140,3 +140,27 @@ text = "HELLO WORLD! Welcome to the world of Cryptography!"
 encrypted = cipher_cipher_using_lookup(text, 3, string.ascii_uppercase, decrypt=False)
 
 print(encrypted)
+
+def fileCipher(fileName, outputFileName, key = 3, shift_type = "right", decrypt=True):
+
+    with open(fileName, "r") as f_in:
+
+        with open(outputFileName, "w") as f_out:
+
+            # iterate over each line in input file
+            for line in f_in:
+
+                #encrypt/decrypt the line
+                lineNew = cipher_cipher_using_lookup(line, key, decrypt=decrypt)
+
+                #write the new line to output file
+                f_out.write(lineNew)
+
+    print("The file {} has been translated successfully and saved to {}".format(fileName, outputFileName))
+
+
+inputFile = "./milky_way_.txt"
+
+outputFile = "./milky_way_encrypted.txt"
+
+fileCipher(inputFile, outputFile, key=3, shift_type="right", decrypt = True)
